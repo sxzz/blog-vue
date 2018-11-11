@@ -9,9 +9,9 @@
         <li>
           <router-link to="/">Home</router-link>
         </li>
-        <li>
-          <router-link to="/archive">Archive</router-link>
-        </li>
+        <!-- <li>
+            <router-link to="/archive">Archive</router-link>
+          </li> -->
         <li>
           <router-link to="/links">Links</router-link>
         </li>

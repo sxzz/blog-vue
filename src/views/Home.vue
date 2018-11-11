@@ -89,8 +89,4 @@
     margin-top: 0;
     margin: 0;
   }
-  
-  .article-list-abstract {
-    margin-left: 1rem;
-  }
 </style>
