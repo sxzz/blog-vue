@@ -74,8 +74,12 @@
   }
   
   .article-list>li {
-    border-bottom: 1px solid #eee;
-    margin: 1.5rem 0;
+    border-bottom: 1px solid #ddd;
+    padding: 1rem 0.5rem;
+  }
+  
+  .article-list>li:hover {
+    background-color: rgba(0, 0, 0, .05);
   }
   
   .article-list-title {
@@ -84,5 +88,9 @@
     color: #404040;
     margin-top: 0;
     margin: 0;
+  }
+  
+  .article-list-abstract {
+    margin-left: 1rem;
   }
 </style>

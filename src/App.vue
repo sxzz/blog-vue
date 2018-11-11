@@ -20,18 +20,20 @@
 <template>
   <div id="app">
     <Header/>
-    <router-view/>
+    <transition name="slide-fade">
+      <router-view></router-view>
+    </transition>
     <Footer/>
   </div>
 </template>
 
 <style>
   * {
-    -webkit-transition: .3s ease;
-    -moz-transition: .3s ease;
-    -ms-transition: .3s ease;
-    -o-transition: .3s ease;
-    transition: .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
   }
   
   body {
@@ -44,5 +46,18 @@
     -moz-osx-font-smoothing: grayscale;
     color: #606975;
     line-height: 1.7;
+  }
+  
+  .slide-fade-enter-active {
+    transition: all .3s ease;
+  }
+  
+  .slide-fade-leave-active {
+    display: none;
+  }
+  
+  .slide-fade-enter,
+  .slide-fade-leave-to {
+    opacity: 0;
   }
 </style>
