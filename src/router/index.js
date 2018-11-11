@@ -9,7 +9,7 @@ export default new Router({
             path: '/article/:id',
             name: 'article',
             component: () =>
-                import ( /* webpackChunkName: "links" */ '@/views/Article.vue')
+                import ( /* webpackChunkName: "article" */ '@/views/Article.vue')
         },
         {
             path: '/archive',
