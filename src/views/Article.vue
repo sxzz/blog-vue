@@ -31,8 +31,10 @@
 
 <template>
   <b-container>
-    <p v-if="loading">Loading...</p>
-    <article class="markdown-body" v-html="content"></article>
+    <transition name="slide-fade">
+      <p v-if="loading">Loading...</p>
+      <article class="markdown-body" v-html="content"></article>
+    </transition>
   </b-container>
 </template>
 
