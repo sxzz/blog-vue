@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Home from '@/views/Home.vue'
+import Article from '@/views/Article.vue'
+import Archive from '@/views/Archive.vue'
+import Links from '@/views/Links.vue'
+import About from '@/views/About.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -8,32 +14,27 @@ export default new Router({
     routes: [{
             path: '/article/:id',
             name: 'article',
-            component: () =>
-                import ( /* webpackChunkName: "article" */ '@/views/Article.vue')
+            component: Article
         },
         {
             path: '/archive',
             name: 'archive',
-            component: () =>
-                import ( /* webpackChunkName: "archive" */ '@/views/Archive.vue')
+            component: Archive
         },
         {
             path: '/links',
             name: 'links',
-            component: () =>
-                import ( /* webpackChunkName: "links" */ '@/views/Links.vue')
+            component: Links
         },
         {
             path: '/about',
             name: 'about',
-            component: () =>
-                import ( /* webpackChunkName: "about" */ '@/views/About.vue')
+            component: About
         },
         {
             path: '*',
             name: 'home',
-            component: () =>
-                import ( /* webpackChunkName: "home" */ '@/views/Home.vue')
+            component: Home
         }
     ]
 })
