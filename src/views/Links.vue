@@ -19,7 +19,7 @@
     data() {
       return {
         loading: true,
-        content: '',
+        content: null,
         links: [],
       }
     }

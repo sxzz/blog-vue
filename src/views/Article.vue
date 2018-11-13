@@ -6,12 +6,14 @@
   export default {
     data() {
       return {
+        id: null,
         loading: true,
-        content: ''
+        content: null
       }
     },
     created() {
-      this.getArticle(this.$route.params.id);
+      this.getArticle(this.id = this.$route.params.id);
+      this.loadDisqus();
     },
     methods: {
       getArticle(id) {
@@ -24,6 +26,16 @@
             console.log(err);
             alert("请求失败，请检查网络连接");
           });
+      },
+      loadDisqus() {
+        let disqus_config = () => {
+          this.page.url = location.href;
+          this.page.identifier = this.id;
+        };
+        let s = document.createElement('script');
+        s.src = 'https://sxzz.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (document.head || document.body).appendChild(s);
       }
     }
   }
@@ -33,7 +45,11 @@
   <b-container>
     <transition name="slide-fade">
       <p v-if="loading">Loading...</p>
-      <article class="markdown-body" v-html="content"></article>
+      <div v-else>
+        <article class="markdown-body" v-html="content"></article>
+        <hr>
+        <div id="disqus_thread"></div>
+      </div>
     </transition>
   </b-container>
 </template>
