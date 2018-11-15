@@ -50,6 +50,20 @@ const api = {
             }`
         }).then(res => res.data)
     },
+    archive() {
+        return axios.post('graphql', {
+            query: `{
+                tags{
+                    tag,
+                    posts{
+                        alias,
+                        title,
+                        created
+                    }
+                }
+            }`
+        }).then(res => res.data)
+    },
     links() {
         return axios.post('graphql', {
             query: `{
