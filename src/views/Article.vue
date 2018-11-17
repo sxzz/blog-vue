@@ -8,7 +8,8 @@
       return {
         id: null,
         loading: true,
-        content: null
+        content: null,
+        gfw: false,
       }
     },
     created() {
@@ -36,6 +37,12 @@
         s.src = 'https://sxzz.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (document.head || document.body).appendChild(s);
+        setTimeout(() => {
+          if (!window.DISQUS) {
+            console.info('Fucking GFW Detected.')
+            this.gfw = true
+          }
+        }, 2000);
       }
     }
   }
@@ -48,7 +55,8 @@
       <div v-else>
         <article class="markdown-body" v-html="content"></article>
         <hr>
-        <div id="disqus_thread"></div>
+        <div v-if="!gfw" id="disqus_thread"></div>
+        <div v-else><strong>你所在的地区不支持评论系统。</strong></div>
       </div>
     </transition>
   </b-container>

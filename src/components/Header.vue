@@ -31,6 +31,7 @@
   
   .logo h1 {
     font-weight: bold;
+    color: #000;
   }
   
   .logo small {
