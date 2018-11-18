@@ -1,6 +1,7 @@
 <script>
   import {
-    Markdown
+    Markdown,
+    Disqus
   } from '@/utils'
   
   export default {
@@ -14,7 +15,12 @@
     },
     created() {
       this.getArticle(this.id = this.$route.params.id);
-      this.loadDisqus();
+      setTimeout(() => {
+        if (!window.DISQUS) {
+          console.info('Fucking GFW Detected.')
+          this.gfw = true
+        }
+      }, 2000);
     },
     methods: {
       getArticle(id) {
@@ -22,28 +28,12 @@
           .then(data => {
             this.content = Markdown.toHtml(data.data.post.content)
             this.loading = false
+            Disqus(this.id);
           })
           .catch(err => {
-            console.log(err);
             alert("请求失败，请检查网络连接");
           });
       },
-      loadDisqus() {
-        let disqus_config = () => {
-          this.page.url = location.href;
-          this.page.identifier = this.id;
-        };
-        let s = document.createElement('script');
-        s.src = 'https://sxzz.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (document.head || document.body).appendChild(s);
-        setTimeout(() => {
-          if (!window.DISQUS) {
-            console.info('Fucking GFW Detected.')
-            this.gfw = true
-          }
-        }, 2000);
-      }
     }
   }
 </script>
@@ -52,16 +42,20 @@
   <b-container>
     <transition name="slide-fade">
       <p v-if="loading">Loading...</p>
-      <div v-else>
-        <article class="markdown-body" v-html="content"></article>
-        <hr>
-        <div v-if="!gfw" id="disqus_thread"></div>
-        <div v-else><strong>你所在的地区不支持评论系统。</strong></div>
-      </div>
     </transition>
+    <div>
+      <article class="markdown-body" v-html="content"></article>
+      <hr>
+      <div v-if="!gfw" id="disqus_thread"></div>
+      <div v-else><strong>你所在的地区不支持评论系统。</strong></div>
+    </div>
   </b-container>
 </template>
 
-<style>
-  
+<style scoped>
+  #disqus_thread:empty:before {
+    white-space: pre;
+    line-height: 35px;
+    content: "正在加载 Disqus 评论系统...";
+  }
 </style>

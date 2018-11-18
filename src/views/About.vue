@@ -11,7 +11,6 @@
           this.content = Markdown.toHtml(data.content)
         })
         .catch(err => {
-          console.log(err);
           alert("请求失败，请检查网络连接");
         });
     },

@@ -13,7 +13,6 @@
           this.tags = data.data.tags
         })
         .catch(err => {
-          console.log(err);
           alert("请求失败，请检查网络连接");
         });
     },
