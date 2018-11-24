@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build:report": "vue-cli-service build --report"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -22,7 +23,9 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-cli-plugin-better-webpack-bundle-analyzer": "^0.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-bundle-analyzer": "*"
   },
   "eslintConfig": {
     "root": true,
