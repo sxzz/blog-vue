@@ -5,7 +5,7 @@
     },
     computed: {
       time() {
-        return Math.floor((new Date().getTime() / 1000 - 1541865600) / 86400);
+        return Math.round((+new Date() / 1000 - 1541865600) / 86400)
       }
     }
   }
