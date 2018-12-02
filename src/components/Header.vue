@@ -2,16 +2,15 @@
   <div>
     <b-container class="header">
       <div class="logo">
-        <h1>三咲智子 <small>Kevin's Blog</small></h1>
-        <p>Strive, then thrive.</p>
+        <h1>三咲智子</h1>
       </div>
       <ul class="nav">
         <li>
           <router-link to="/">Home</router-link>
         </li>
         <li>
-            <router-link to="/archive">Archive</router-link>
-          </li>
+          <router-link to="/archive">Archive</router-link>
+        </li>
         <li>
           <router-link to="/links">Links</router-link>
         </li>

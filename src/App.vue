@@ -2,7 +2,6 @@
   import Vue from "vue";
   import bContainer from 'bootstrap-vue/es/components/layout/container'
   import 'bootstrap/dist/css/bootstrap.css'
-  import 'bootstrap-vue/dist/bootstrap-vue.css'
   
   import Header from "@/components/Header";
   import Footer from "@/components/Footer";
@@ -20,7 +19,7 @@
 <template>
   <div id="app">
     <Header/>
-    <transition name="slide-fade">
+    <transition name="fade">
       <router-view></router-view>
     </transition>
     <Footer/>
@@ -29,10 +28,6 @@
 
 <style>
   * {
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
     transition: all .3s ease;
   }
   
@@ -48,16 +43,16 @@
     line-height: 1.7;
   }
   
-  .slide-fade-enter-active {
+  .fade-enter-active {
     transition: all .3s ease;
   }
   
-  .slide-fade-leave-active {
+  .fade-leave-active {
     display: none;
   }
   
-  .slide-fade-enter,
-  .slide-fade-leave-to {
+  .fade-enter,
+  .fade-leave-to {
     opacity: 0;
   }
 </style>

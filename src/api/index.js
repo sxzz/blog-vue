@@ -27,8 +27,7 @@ const api = {
                         alias,
                         tags,
                         updated,
-                        created,
-                        content
+                        created
                     }
                 }
             }`

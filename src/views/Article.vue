@@ -40,7 +40,7 @@
 
 <template>
   <b-container>
-    <transition name="slide-fade">
+    <transition name="fade">
       <p v-if="loading">Loading...</p>
     </transition>
     <div>
