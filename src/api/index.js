@@ -1,21 +1,22 @@
-import Vue from 'vue'
-import axios from 'axios'
+import Vue from 'vue';
+import axios from 'axios';
 
-axios.defaults.baseURL = '/api/'
+axios.defaults.baseURL = '/api/';
 
 axios.interceptors.request.use(config => {
-    if (config.method === 'post') {
-        let formData = new FormData()
-        Object.keys(config.data).forEach(key => formData.append(key, config.data[key]))
-        config.data = formData
-    }
-    return config
-})
+  if (config.method === 'post') {
+    let formData = new FormData();
+    Object.keys(config.data).forEach(key => formData.append(key, config.data[key]));
+    config.data = formData;
+  }
+  return config;
+});
 
 const api = {
-    posts() {
-        return axios.post('graphql', {
-            query: `{
+  posts() {
+    return axios
+      .post('graphql', {
+        query: `{
                 posts(
                     offset: 0,
                     row: 10,
@@ -30,12 +31,14 @@ const api = {
                         created
                     }
                 }
-            }`
-        }).then(res => res.data)
-    },
-    post(id) {
-        return axios.post('graphql', {
-            query: `{
+            }`,
+      })
+      .then(res => res.data);
+  },
+  post(id) {
+    return axios
+      .post('graphql', {
+        query: `{
                 post(
                     alias: "${id}"
                 ){
@@ -46,12 +49,14 @@ const api = {
                     created,
                     content
                 }
-            }`
-        }).then(res => res.data)
-    },
-    archive() {
-        return axios.post('graphql', {
-            query: `{
+            }`,
+      })
+      .then(res => res.data);
+  },
+  archive() {
+    return axios
+      .post('graphql', {
+        query: `{
                 tags{
                     tag,
                     posts{
@@ -60,12 +65,14 @@ const api = {
                         created
                     }
                 }
-            }`
-        }).then(res => res.data)
-    },
-    links() {
-        return axios.post('graphql', {
-            query: `{
+            }`,
+      })
+      .then(res => res.data);
+  },
+  links() {
+    return axios
+      .post('graphql', {
+        query: `{
                 link{
                     content,
                     links{
@@ -74,13 +81,14 @@ const api = {
                         description
                     }
                 }
-            }`
-        }).then(res => res.data)
-    },
-    about() {
-        return axios.get('about').then(res => res.data)
-    }
-}
-Vue.prototype.$api = api
+            }`,
+      })
+      .then(res => res.data);
+  },
+  about() {
+    return axios.get('about').then(res => res.data);
+  },
+};
+Vue.prototype.$api = api;
 
-export default api
+export default api;

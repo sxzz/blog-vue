@@ -1,11 +1,11 @@
 <script>
-  export default {
-    computed: {
-      time() {
-        return Math.round((+new Date() / 1000 - 1541865600) / 86400)
-      }
+export default {
+  computed: {
+    time() {
+      return Math.round((+new Date() / 1000 - 1541865600) / 86400);
     }
   }
+};
 </script>
 
 <template>
@@ -18,9 +18,9 @@
 </template>
 
 <style scoped>
-  .footer {
-    margin-top: 50px;
-    text-align: center;
-    font-size: 0.85rem;
-  }
+.footer {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 0.85rem;
+}
 </style>

@@ -1,22 +1,23 @@
 <script>
-  export default {
-    data() {
-      return {
-        loading: true,
-        tags: []
-      }
-    },
-    created() {
-      this.$api.archive()
-        .then(data => {
-          this.loading = false
-          this.tags = data.data.tags
-        })
-        .catch(err => {
-          alert("请求失败，请检查网络连接");
-        });
-    },
+export default {
+  data() {
+    return {
+      loading: true,
+      tags: []
+    };
+  },
+  created() {
+    this.$api
+      .archive()
+      .then(data => {
+        this.loading = false;
+        this.tags = data.data.tags;
+      })
+      .catch(err => {
+        alert("请求失败，请检查网络连接");
+      });
   }
+};
 </script>
 
 <template>
@@ -37,14 +38,14 @@
 </template>
 
 <style scoped>
-  .archive {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .archive li article {
-    display: flex;
-    line-height: 33px;
-    justify-content: space-between;
-  }
+.archive {
+  list-style: none;
+  padding: 0;
+}
+
+.archive li article {
+  display: flex;
+  line-height: 33px;
+  justify-content: space-between;
+}
 </style>

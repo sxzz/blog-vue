@@ -24,25 +24,25 @@
 </template>
 
 <style scoped>
-  .header {
-    padding-top: 30px;
-  }
-  
-  .logo h1 {
-    font-weight: bold;
-    color: #000;
-  }
-  
-  .logo small {
-    font-weight: normal;
-    font-size: 1.4rem;
-  }
-  
-  .nav>li {
-    padding-right: 20px;
-  }
-  
-  .nav>li.active {
-    text-decoration: underline
-  }
+.header {
+  padding-top: 30px;
+}
+
+.logo h1 {
+  font-weight: bold;
+  color: #000;
+}
+
+.logo small {
+  font-weight: normal;
+  font-size: 1.4rem;
+}
+
+.nav > li {
+  padding-right: 20px;
+}
+
+.nav > li.active {
+  text-decoration: underline;
+}
 </style>
