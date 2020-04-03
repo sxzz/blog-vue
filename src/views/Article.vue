@@ -7,7 +7,7 @@ export default {
       id: null,
       loading: true,
       content: null,
-      gfw: false
+      gfw: false,
     };
   },
   created() {
@@ -28,11 +28,11 @@ export default {
           this.loading = false;
           Disqus(this.id);
         })
-        .catch(err => {
+        .catch(() => {
           alert("请求失败，请检查网络连接");
         });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -43,7 +43,7 @@ export default {
     </transition>
     <div>
       <article class="markdown-body" v-html="content"></article>
-      <hr>
+      <hr />
       <div v-if="!gfw" id="disqus_thread"></div>
       <div v-else>
         <strong>你所在的地区不支持评论系统。</strong>

@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       loading: true,
-      tags: []
+      tags: [],
     };
   },
   created() {
@@ -13,10 +13,10 @@ export default {
         this.loading = false;
         this.tags = data.data.tags;
       })
-      .catch(err => {
+      .catch(() => {
         alert("请求失败，请检查网络连接");
       });
-  }
+  },
 };
 </script>
 
@@ -28,7 +28,10 @@ export default {
       <ul class="archive">
         <li v-for="post in tag.posts" :key="post.id">
           <article>
-            <router-link :to="{ name: 'article', params: { id : post.alias }}">{{ post.title }}</router-link>
+            <router-link
+              :to="{ name: 'article', params: { id: post.alias } }"
+              >{{ post.title }}</router-link
+            >
             <span>{{ post.created }}</span>
           </article>
         </li>

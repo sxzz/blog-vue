@@ -10,7 +10,7 @@ export default {
         this.links = data.data.link.links;
         this.loading = false;
       })
-      .catch(err => {
+      .catch(() => {
         alert("请求失败，请检查网络连接");
       });
   },
@@ -18,9 +18,9 @@ export default {
     return {
       loading: true,
       content: null,
-      links: []
+      links: [],
     };
-  }
+  },
 };
 </script>
 
@@ -30,7 +30,9 @@ export default {
     <div class="markdown-body" v-html="content"></div>
     <ul class="links clearfix">
       <li v-for="link in links" :key="link.title">
-        <a :href="link.link" :title="link.description" target="_blank">{{ link.title }}</a>
+        <a :href="link.link" :title="link.description" target="_blank">{{
+          link.title
+        }}</a>
       </li>
     </ul>
   </b-container>

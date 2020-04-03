@@ -11,18 +11,18 @@ Vue.component("b-container", bContainer);
 export default {
   components: {
     Header,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 
 <template>
   <div id="app">
-    <Header/>
+    <Header />
     <transition name="fade">
       <router-view></router-view>
     </transition>
-    <Footer/>
+    <Footer />
   </div>
 </template>
 

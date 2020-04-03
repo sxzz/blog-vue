@@ -6,7 +6,7 @@ export default id => {
   if (DISQUS) {
     DISQUS.reset({
       reload: true,
-      config: function() {
+      config: function () {
         this.page.identifier = window.disqus_identifier;
         this.page.url = window.disqus_url;
       },
@@ -14,8 +14,8 @@ export default id => {
     return;
   }
 
-  let s = document.createElement('script');
-  s.src = 'https://sxzz.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
+  let s = document.createElement("script");
+  s.src = "https://sxzz.disqus.com/embed.js";
+  s.setAttribute("data-timestamp", +new Date());
   (document.head || document.body).appendChild(s);
 };

@@ -19,7 +19,7 @@
         </li>
       </ul>
     </b-container>
-    <hr>
+    <hr />
   </div>
 </template>
 

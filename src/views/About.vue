@@ -9,16 +9,16 @@ export default {
         this.loading = false;
         this.content = Markdown.toHtml(data.content);
       })
-      .catch(err => {
+      .catch(() => {
         alert("请求失败，请检查网络连接");
       });
   },
   data() {
     return {
       loading: true,
-      content: null
+      content: null,
     };
-  }
+  },
 };
 </script>
 
