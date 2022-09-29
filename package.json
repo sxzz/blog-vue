@@ -9,7 +9,7 @@
     "build:report": "vue-cli-service build --report"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.0.0-rc.11",
     "github-markdown-css": "4.0.0",
